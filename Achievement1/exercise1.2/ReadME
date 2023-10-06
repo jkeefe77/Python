@@ -1,0 +1,13 @@
+# Exercise 1.2
+
+## Task
+
+- **name (str):** Contains the name of the recipe
+- **cooking_time (int):** Contains the cooking time in minutes
+- **ingredients (list):** Contains a number of ingredients, each of the str data type
+
+I chose dictionaries for storing each recipe based on their ability to structure diverse data types efficiently. Dictionaries can store the recipe names as strings, the ingredients as lists, and the cooking time as integers. Dictionaries also provide the ability to update or append their data due to them being mutable.
+
+**all_recipes = [ ]**
+
+I utilized a list for the outer container structure as it displays an organized view when maintaining multiple data points such as multiple recipes.
