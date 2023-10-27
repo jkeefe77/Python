@@ -17,8 +17,8 @@ class Recipe(models.Model):
     recipe_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=120)
     cooking_time = models.PositiveBigIntegerField(default=60)
-    ingredients = models.CharField(max_length=120)
-    description = models.CharField(max_length=500, default="")
+    ingredients = models.TextField(default="")
+    description = models.TextField(default="")
 
     difficulty = models.CharField(
         max_length=60,
@@ -32,7 +32,7 @@ class Recipe(models.Model):
         # Adjust these thresholds as needed based on your criteria
         if self.cooking_time <= 30 and len(self.ingredients.split()) <= 5:
             self.difficulty = self.BEGINNER
-        elif self.cooking_time <= 60 and self.ingredients <= 10:
+        elif self.cooking_time <= 60 and len(self.ingredients.split()) <= 10:
             self.difficulty = self.INTERMEDIATE
         else:
             self.difficulty = self.HARD
