@@ -16,18 +16,21 @@ class Recipe(models.Model):
 
     recipe_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=120)
-    cooking_time = models.PositiveBigIntegerField
+    cooking_time = models.PositiveBigIntegerField(default=60)
     ingredients = models.CharField(max_length=120)
+    description = models.CharField(max_length=500, default="")
 
     difficulty = models.CharField(
-        max_length=15,
+        max_length=60,
         choices=DIFFICULTY_CHOICES,
         default=BEGINNER,
     )
 
     def save(self, *args, **kwargs):
+        force_insert = kwargs.pop("force_insert", False)
+        super(Recipe, self).save(*args, **kwargs)
         # Adjust these thresholds as needed based on your criteria
-        if self.cooking_time <= 30 and self.ingredients <= 5:
+        if self.cooking_time <= 30 and len(self.ingredients.split()) <= 5:
             self.difficulty = self.BEGINNER
         elif self.cooking_time <= 60 and self.ingredients <= 10:
             self.difficulty = self.INTERMEDIATE
