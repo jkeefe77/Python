@@ -1,7 +1,7 @@
-import pickle
+import fickling
 
 with open("vehicledetail.bin", "rb") as my_file:
-    vehicle = pickle.load(my_file)
+    vehicle = fickling.load(my_file)
 
 print("Vehicle details - ")
 print("Name:  " + vehicle["brand"] + " " + vehicle["model"])

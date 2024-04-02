@@ -1,4 +1,5 @@
 import pickle
+import fickling
 
 recipes_list = []
 ingredients_list = []
@@ -45,7 +46,7 @@ recipe_file_name = (
 
 try:
     recipe_file = open(recipe_file_name, "rb")
-    data = pickle.load(recipe_file)
+    data = fickling.load(recipe_file)
 except FileNotFoundError:
     print("The file with the given name isn’t found")
     data = {"Recipes list": recipes_list, "Ingredients list": ingredients_list}

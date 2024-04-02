@@ -1,4 +1,4 @@
-import pickle
+import fickling
 
 
 def display_recipe(recipes):
@@ -45,7 +45,7 @@ recipe_file_name = str(
 
 try:
     recipe_file = open(recipe_file_name + ".bin", "rb")
-    data = pickle.load(recipe_file)
+    data = fickling.load(recipe_file)
 except FileNotFoundError:
     print("The file with the given name has not been found")
 else:
