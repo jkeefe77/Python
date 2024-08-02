@@ -21,3 +21,4 @@ typing-extensions==4.8.0
 virtualenv==20.24.5
 virtualenvwrapper-win==1.2.7
 wcwidth==0.2.8
+security==1.3.1
